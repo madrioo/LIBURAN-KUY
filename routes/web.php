@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\TravelPackageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +34,8 @@ Route::get('/checkout/success', function () {
 });
 
 Route::get('admin', [DashboardController::class, 'index'])->middleware(['auth','admin'])->name('admin');
+Route::resource('travel-package', TravelPackageController::class);
+Route::resource('gallery', GalleryController::class);
+Route::resource('transaction', TransactionController::class);
 
 Auth::routes(['verify' => true]);
